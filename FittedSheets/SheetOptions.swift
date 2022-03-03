@@ -61,6 +61,8 @@ public struct SheetOptions {
     @available(*, unavailable, message: "cornerRadius is now a property on SheetViewController")
     public var cornerRadius: CGFloat = 0
     
+    public var isRubberBandEnabled: Bool = false
+    
     public init() { }
     public init(pullBarHeight: CGFloat? = nil,
                 presentingViewCornerRadius: CGFloat? = nil,
@@ -70,7 +72,8 @@ public struct SheetOptions {
                 shrinkPresentingViewController: Bool? = nil,
                 useInlineMode: Bool? = nil,
                 horizontalPadding: CGFloat? = nil,
-                maxWidth: CGFloat? = nil) {
+                maxWidth: CGFloat? = nil,
+                isRubberBandEnabled: Bool? = nil) {
         let defaultOptions = SheetOptions.default
         self.pullBarHeight = pullBarHeight ?? defaultOptions.pullBarHeight
         self.presentingViewCornerRadius = presentingViewCornerRadius ?? defaultOptions.presentingViewCornerRadius
@@ -82,6 +85,7 @@ public struct SheetOptions {
         self.horizontalPadding = horizontalPadding ?? defaultOptions.horizontalPadding
         let maxWidth = maxWidth ?? defaultOptions.maxWidth
         self.maxWidth = maxWidth == 0 ? nil : maxWidth
+        self.isRubberBandEnabled = isRubberBandEnabled ?? false
     }
     
     @available(*, unavailable, message: "cornerRadius, minimumSpaceAbovePullBar, gripSize and gripColor are now properties on SheetViewController. Use them instead.")

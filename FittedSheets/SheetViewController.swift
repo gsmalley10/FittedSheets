@@ -375,7 +375,11 @@ public class SheetViewController: UIViewController {
             newHeight = minHeight
         }
         if newHeight > maxHeight {
-            newHeight = maxHeight
+            if options.isRubberBandEnabled {
+                newHeight = logConstraintValueForYPosition(verticalLimit: maxHeight, yPosition: newHeight)
+            } else {
+                newHeight = maxHeight
+            }
         }
         
         switch gesture.state {
@@ -534,6 +538,11 @@ public class SheetViewController: UIViewController {
                 contentHeight = (self.view.bounds.height) - margin + self.keyboardHeight
         }
         return min(fullscreenHeight, contentHeight)
+    }
+    
+    // https://medium.com/thoughts-on-thoughts/recreating-apple-s-rubber-band-effect-in-swift-dbf981b40f35
+    private func logConstraintValueForYPosition(verticalLimit: CGFloat, yPosition : CGFloat) -> CGFloat {
+      return verticalLimit * (1 + log10(yPosition/verticalLimit))
     }
     
     public func resize(to size: SheetSize,
