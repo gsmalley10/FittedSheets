@@ -161,14 +161,10 @@ public class SheetViewController: UIViewController {
         set { self.contentViewController.contentBackgroundColor = newValue }
     }
     
-    public init(controller: UIViewController, sizes: [SheetSize] = [.intrinsic], options: SheetOptions? = nil) {
+    public init(controller: UIViewController, sizes: [SheetSize] = [.intrinsic], options: SheetOptions? = nil, backgroundColor: UIColor) {
         let options = options ?? SheetOptions.default
         self.contentViewController = SheetContentViewController(childViewController: controller, options: options)
-        if #available(iOS 13.0, *) {
-            self.contentViewController.contentBackgroundColor = UIColor.systemBackground
-        } else {
-            self.contentViewController.contentBackgroundColor = UIColor.white
-        }
+        self.contentViewController.contentBackgroundColor = backgroundColor
         self.sizes = sizes.count > 0 ? sizes : [.intrinsic]
         self.options = options
         self.transition = SheetTransition(options: options)
@@ -493,7 +489,7 @@ public class SheetViewController: UIViewController {
         guard let info:[AnyHashable: Any] = notification.userInfo, let keyboardRect:CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
         let windowRect = self.view.convert(self.view.bounds, to: nil)
-        let actualHeight = windowRect.maxY - keyboardRect.origin.y
+        let actualHeight = windowRect.maxY - keyboardRect.origin.y - 28
         self.adjustForKeyboard(height: actualHeight, from: notification)
     }
     
