@@ -134,6 +134,7 @@ public class SheetViewController: UIViewController {
     let transition: SheetTransition
     
     public var shouldDismiss: ((SheetViewController) -> Bool)?
+    public var didAttemptToDismiss: ((SheetViewController) -> Void)?
     public var didDismiss: ((SheetViewController) -> Void)?
     public var sizeChanged: ((SheetViewController, SheetSize, CGFloat) -> Void)?
     public var panGestureShouldBegin: ((UIPanGestureRecognizer) -> Bool?)?
@@ -580,6 +581,8 @@ public class SheetViewController: UIViewController {
     }
     
     public func attemptDismiss(animated: Bool) {
+        self.didAttemptToDismiss?(self)
+        
         if self.shouldDismiss?(self) != false {
             if self.options.useInlineMode {
                 if animated {
