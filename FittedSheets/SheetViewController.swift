@@ -134,7 +134,7 @@ public class SheetViewController: UIViewController {
     let transition: SheetTransition
     
     public var shouldDismiss: ((SheetViewController) -> Bool)?
-    public var didAttemptToDismiss: ((SheetViewController) -> Void)?
+    public var didScrollDown: ((SheetViewController) -> Void)?
     public var didDismiss: ((SheetViewController) -> Void)?
     public var sizeChanged: ((SheetViewController, SheetSize, CGFloat) -> Void)?
     public var panGestureShouldBegin: ((UIPanGestureRecognizer) -> Bool?)?
@@ -398,6 +398,7 @@ public class SheetViewController: UIViewController {
                     self.transition.setPresentor(percentComplete: percent)
                     self.overlayView.alpha = 1 - percent
                     self.contentViewController.view.transform = CGAffineTransform(translationX: 0, y: offset)
+                    didScrollDown?(self)
                 } else {
                     self.contentViewController.view.transform = CGAffineTransform.identity
                 }
@@ -581,8 +582,6 @@ public class SheetViewController: UIViewController {
     }
     
     public func attemptDismiss(animated: Bool) {
-        self.didAttemptToDismiss?(self)
-        
         if self.shouldDismiss?(self) != false {
             if self.options.useInlineMode {
                 if animated {
