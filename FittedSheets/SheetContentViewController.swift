@@ -184,7 +184,7 @@ public class SheetContentViewController: UIViewController {
     }
     
     private func updateChildViewControllerBottomConstraint(adjustment: CGFloat) {
-        self.contentBottomConstraint?.constant = adjustment + 20
+        self.contentBottomConstraint?.constant = adjustment // + 20
     }
     
     private func setupChildViewController() {

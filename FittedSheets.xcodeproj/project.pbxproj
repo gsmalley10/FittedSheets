@@ -255,22 +255,22 @@
 		F857D0922204B71F004C862F /* FittedSheets */ = {
 			isa = PBXGroup;
 			children = (
-				F8C1A06A24E2FF4600807078 /* Localization */,
-				42F0967427040EE7009774EA /* Compatible.swift */,
-				F8A42B4924D1E241005DE55B /* SheetViewController.swift */,
-				F8A42B4B24D1E2EF005DE55B /* SheetContentViewController.swift */,
-				F803419C212F208300EAD717 /* Yalta.swift */,
-				F84FF4AA21348A2900248951 /* SheetSize.swift */,
-				F84FF4AE2134A95300248951 /* InitialTouchPanGestureRecognizer.swift */,
-				F84FF4B02135BE1A00248951 /* UIViewControllerExtension.swift */,
 				F857D0932204B71F004C862F /* FittedSheetsPod.h */,
 				F857D0942204B71F004C862F /* Info.plist */,
-				F8A42B4D24D1E40A005DE55B /* SheetOptions.swift */,
-				F8A42B4F24D1E4C3005DE55B /* UIColorExtension.swift */,
+				42F0967427040EE7009774EA /* Compatible.swift */,
+				F84FF4AE2134A95300248951 /* InitialTouchPanGestureRecognizer.swift */,
+				F8A42B4B24D1E2EF005DE55B /* SheetContentViewController.swift */,
 				F8A42B5124D1F6D3005DE55B /* SheetContentViewDelegate.swift */,
+				F8A42B4D24D1E40A005DE55B /* SheetOptions.swift */,
+				F84FF4AA21348A2900248951 /* SheetSize.swift */,
 				F8A42B8724DA1682005DE55B /* SheetTransition.swift */,
 				F8A42B9524DB3495005DE55B /* SheetView.swift */,
+				F8A42B4924D1E241005DE55B /* SheetViewController.swift */,
 				F8A42B9724DB34E1005DE55B /* SheetViewDelegate.swift */,
+				F8A42B4F24D1E4C3005DE55B /* UIColorExtension.swift */,
+				F84FF4B02135BE1A00248951 /* UIViewControllerExtension.swift */,
+				F803419C212F208300EAD717 /* Yalta.swift */,
+				F8C1A06A24E2FF4600807078 /* Localization */,
 			);
 			path = FittedSheets;
 			sourceTree = "<group>";
